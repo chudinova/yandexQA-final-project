@@ -6,28 +6,28 @@ public class Account {
         this.name = name;
     }
 
-    public boolean checkNameToEmboss(String accountName) {
+    public boolean checkNameToEmboss() {
 
         int spaceCount = 0;
-        for (int i = 0; i < accountName.length(); i++) {
-            if (accountName.charAt(i) == ' ')
+        for (int i = 0; i < name.length(); i++) {
+            if (name.charAt(i) == ' ')
                 spaceCount++;
         }
         /*
              Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
              Если строка удовлетворяет условиям, метод возвращает true, иначе — false.
          */
-        if(accountName.isEmpty())
+        if(name.isEmpty())
             return false;
-        else if(accountName.length() < 3)
+        else if(name.length() < 3)
             return false;
-        else if(accountName.length() > 19)
+        else if(name.length() > 19)
             return false;
-        else if(spaceCount > 1)
+        else if(spaceCount != 1)
             return false;
-        else if(accountName.startsWith(" "))
+        else if(name.startsWith(" "))
             return false;
-        else if(accountName.endsWith(" "))
+        else if(name.endsWith(" "))
             return false;
         else return true;
     }
