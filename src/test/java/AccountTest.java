@@ -24,6 +24,8 @@ public class AccountTest {
                     {"Name Surename", true},
                     {"name surename", true},
                     {"NAME SURENAME", true},
+                    {"Name Surenameeeeeee", true},
+                    {"Name Surenameeeeeeee", false},
                     {"a", false},
                     {"aa", false},
                     {" namesurename", false},
