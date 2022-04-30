@@ -17,29 +17,30 @@ public class AccountTest {
     }
 
     @Parameterized.Parameters(name = "Тестовые данные: имя \"{0}\", результат - {1}")
-        public static Object[][] getName() {
-            return new Object[][] {
-                    {"a a", true},
-                    {"A a", true},
-                    {"Name Surename", true},
-                    {"name surename", true},
-                    {"NAME SURENAME", true},
-                    {"Name Surenameeeeeee", true},
-                    {"Name Surenameeeeeeee", false},
-                    {"a", false},
-                    {"aa", false},
-                    {" namesurename", false},
-                    {"namesurename ", false},
-                    {"name sure name", false},
-                    {"namesurenamenamesurename namesurename", false},
-            };
-        }
+    public static Object[][] getName() {
+        return new Object[][]{
+                {"a a", true},
+                {"A a", true},
+                {"Name Surename", true},
+                {"name surename", true},
+                {"NAME SURENAME", true},
+                {"Name Surenameeeeeee", true},
+                {"Name Surenameeeeeeee", false},
+                {"a", false},
+                {"aa", false},
+                {" namesurename", false},
+                {"namesurename ", false},
+                {"name sure name", false},
+                {"namesurenamenamesurename namesurename", false},
+                {null, false},
+        };
+    }
 
-        @Test
-        public void checkNameToEmbossTest() {
-            Account account = new Account(name);
-            boolean actual = account.checkNameToEmboss();
-            assertEquals(expected, actual);
+    @Test
+    public void checkNameToEmbossTest() {
+        Account account = new Account(name);
+        boolean actual = account.checkNameToEmboss();
+        assertEquals(expected, actual);
 
     }
 }
