@@ -16,7 +16,7 @@ public class AccountTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters(name = "Тестовые данные: имя \"{0}\", результат - {1}")
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] getName() {
         return new Object[][]{
                 {"a a", true},
