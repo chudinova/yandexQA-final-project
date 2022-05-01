@@ -6,35 +6,27 @@ public class Account {
         this.name = name;
     }
 
-    public boolean checkNameToEmboss() {
 
+    private boolean isSpaceOne() {
+        int spaceCount = 0;
+        for (int i = 0; i < name.length(); i++) {
+            if (name.charAt(i) == ' ')
+                spaceCount++;
+        }
+        return spaceCount == 1;
+    }
+
+    public boolean checkNameToEmboss() {
         try {
-            int spaceCount = 0;
-            for (int i = 0; i < name.length(); i++) {
-                if (name.charAt(i) == ' ')
-                    spaceCount++;
-            }
-        /*
-             Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
-             Если строка удовлетворяет условиям, метод возвращает true, иначе — false.
-         */
-            if (name.isEmpty())
-                return false;
-            else if (name.length() < 3)
-                return false;
-            else if (name.length() > 19)
-                return false;
-            else if (spaceCount != 1)
-                return false;
-            else if (name.startsWith(" "))
-                return false;
-            else if (name.endsWith(" "))
-                return false;
-            else return true;
+
+            boolean isNotEmpty = !name.isEmpty();
+            boolean isLengthValid = name.length() >= 3 && name.length() <= 19;
+            boolean isNotEndsSpacesExist = !name.startsWith(" ") && !name.endsWith(" ");
+            return isNotEmpty && isLengthValid && isNotEndsSpacesExist && isSpaceOne();
+
         } catch (NullPointerException exception) {
             return false;
         }
     }
-
 
 }
