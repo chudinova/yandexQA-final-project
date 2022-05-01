@@ -1,4 +1,5 @@
 
+import io.qameta.allure.Step;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -37,6 +38,7 @@ public class AccountTest {
     }
 
     @Test
+    @Step("Проверка текста")
     public void checkNameToEmbossTest() {
         Account account = new Account(name);
         boolean actual = account.checkNameToEmboss();
